@@ -29,7 +29,7 @@ class _ProgressPageState extends State<ProgressPage> {
                   alignment: Alignment.centerLeft,
                   child: Column(children: const [
                     Text(
-                      "Hey Hermano!",
+                      "Olá Breno!",
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class _ProgressPageState extends State<ProgressPage> {
                       height: 5,
                     ),
                     Text(
-                      "Keep going champ!",
+                      "Continue assim, campeão!",
                       style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w400,
@@ -65,7 +65,7 @@ class _ProgressPageState extends State<ProgressPage> {
           child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Top Habits This Week",
+                "Hábitos Principais Esta Semana",
                 style: TextStyle(
                     color: Colors.grey[900],
                     fontSize: 18,
@@ -89,11 +89,11 @@ class _ProgressPageState extends State<ProgressPage> {
                     value: 1,
                   ),
                   title: Text(
-                    "Drinking Water",
+                    "Beber Água",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    "How good you've been at drinking water this week",
+                    "Quão bem você tem se saído ao beber água esta semana",
                     style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
                   ),
                   trailing: Icon(Icons.local_drink)),
@@ -106,11 +106,11 @@ class _ProgressPageState extends State<ProgressPage> {
                     value: 0.95,
                   ),
                   title: Text(
-                    "Reading",
+                    "Leitura",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    "How good you've been at reading  this week",
+                    "Quão bem você tem se saído ao ler esta semana",
                     style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
                   ),
                   trailing: Icon(Icons.book)),
@@ -123,11 +123,11 @@ class _ProgressPageState extends State<ProgressPage> {
                     value: 0.8,
                   ),
                   title: Text(
-                    "Exercising",
+                    "Exercícios",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    "How good you've been at exercising this week",
+                    "Quão bem você tem se saído ao se exercitar esta semana",
                     style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
                   ),
                   trailing: Icon(Icons.sports_gymnastics)),
@@ -140,11 +140,11 @@ class _ProgressPageState extends State<ProgressPage> {
                     value: 0.65,
                   ),
                   title: Text(
-                    "Studying Spanish",
+                    "Estudando Espanhol",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    "How good you've been at Studying Spanish this week",
+                    "Quão bem você tem se saído ao estudar espanhol esta semana",
                     style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
                   ),
                   trailing: Icon(Icons.language)),
@@ -156,7 +156,7 @@ class _ProgressPageState extends State<ProgressPage> {
           child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Worst Habits This Week",
+                "Piores Hábitos Esta Semana",
                 style: TextStyle(
                     color: Colors.grey[900],
                     fontSize: 18,
@@ -180,11 +180,11 @@ class _ProgressPageState extends State<ProgressPage> {
                     value: 0.12,
                   ),
                   title: Text(
-                    "Coding",
+                    "Programação",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    "How bad you've been at coding this week",
+                    "Quão mal você tem se saído na programação esta semana",
                     style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
                   ),
                   trailing: Icon(Icons.computer)),
@@ -197,11 +197,11 @@ class _ProgressPageState extends State<ProgressPage> {
                     value: 0.25,
                   ),
                   title: Text(
-                    "Journaling",
+                    "Diário",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    "How bad you've been at journaling this week",
+                    "Quão mal você tem se saído ao escrever no diário esta semana",
                     style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
                   ),
                   trailing: Icon(Icons.edit)),
@@ -214,11 +214,11 @@ class _ProgressPageState extends State<ProgressPage> {
                     value: 0.33,
                   ),
                   title: Text(
-                    "Cleaning",
+                    "Limpeza",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    "How bad you've been at cleaning this week",
+                    "Quão mal você tem se saído na limpeza esta semana",
                     style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
                   ),
                   trailing: Icon(Icons.cleaning_services_outlined)),
@@ -231,11 +231,11 @@ class _ProgressPageState extends State<ProgressPage> {
                     value: 0.33,
                   ),
                   title: Text(
-                    "Waking Up Early",
+                    "Acordar Cedo",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    "How bad you've been at waking up early this week",
+                    "Quão mal você tem se saído ao acordar cedo esta semana",
                     style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
                   ),
                   trailing: Icon(Icons.language)),

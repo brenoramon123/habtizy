@@ -37,7 +37,7 @@ class _SignUpPageState extends State<SignUpPage> {
           textInputAction: TextInputAction.next,
           decoration: InputDecoration(
             // hintText: 'Enter your full name',
-            labelText: 'Name',
+            labelText: 'Nome',
             labelStyle: TextStyle(
                 color: Color.fromRGBO(226, 222, 211, 1),
                 fontWeight: FontWeight.w500,
@@ -57,10 +57,10 @@ class _SignUpPageState extends State<SignUpPage> {
     return Stack(
       children: [
         TextFormField(
-          keyboardType: TextInputType.name,
+          keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.next,
           decoration: InputDecoration(
-            // hintText: 'Enter your full name',
+            // hintText: 'Enter your email',
             labelText: 'Email',
             labelStyle: TextStyle(
                 color: Color.fromRGBO(226, 222, 211, 1),
@@ -81,10 +81,11 @@ class _SignUpPageState extends State<SignUpPage> {
     return Stack(
       children: [
         TextFormField(
-          keyboardType: TextInputType.name,
-          textInputAction: TextInputAction.next,
+          obscureText: true,
+          keyboardType: TextInputType.text,
+          textInputAction: TextInputAction.done,
           decoration: InputDecoration(
-            labelText: 'Password',
+            labelText: 'Senha',
             labelStyle: TextStyle(
                 color: Color.fromRGBO(226, 222, 211, 1),
                 fontWeight: FontWeight.w500,
@@ -111,7 +112,7 @@ class _SignUpPageState extends State<SignUpPage> {
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text(
-            'Sign up',
+            'Cadastrar',
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 25,
@@ -141,7 +142,7 @@ class _SignUpPageState extends State<SignUpPage> {
         onTap: () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => SignInPage())),
         child: Text(
-          'Login',
+          'Entrar',
           style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import './signup_clipper.dart';
 
@@ -28,7 +27,7 @@ class SignUpContainer extends StatelessWidget {
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 150, horizontal: 20),
-              child: Text('Create \nAccount!',
+              child: Text('Criar \nConta!',
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

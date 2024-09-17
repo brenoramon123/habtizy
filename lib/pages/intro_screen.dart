@@ -38,32 +38,32 @@ void onNextPage() {
   }
 }
 
-  final List<Map<String, dynamic>> _pages = [
-    {
-      'color': '#ffe24e',
-      'title': 'Hmmm, Healthy food',
-      'image': 'assets/image1.png',
-      'description':
-          "A variety of foods made by the best chef. Ingredients are easy to find, all delicious flavors can only be found at cookbunda",
-      'skip': true
-    },
-    {
-      'color': '#a3e4f1',
-      'title': 'Fresh Drinks, Stay Fresh',
-      'image': 'assets/image2.png',
-      'description':
-          'Not all food, we provide clear healthy drink options for you. Fresh taste always accompanies you',
-      'skip': true
-    },
-    {
-      'color': '#31b77a',
-      'title': 'Let\'s Cooking',
-      'image': 'assets/image3.png',
-      'description':
-          'Are you ready to make a dish for your friends or family? create an account and cooks',
-      'skip': true
-    },
-  ];
+ final List<Map<String, dynamic>> _pages = [
+  {
+    'color': '#ffe24e',
+    'title': 'Hmmm, Comida Saudável',
+    'image': 'assets/image1.png',
+    'description':
+        'Uma variedade de alimentos preparados pelos melhores chefs. Ingredientes fáceis de encontrar, todos os sabores deliciosos só podem ser encontrados no Cookbunda.',
+    'skip': true
+  },
+  {
+    'color': '#a3e4f1',
+    'title': 'Bebidas Frescas, Fique Fresco',
+    'image': 'assets/image2.png',
+    'description':
+        'Não é só comida, oferecemos opções de bebidas saudáveis e claras para você. O sabor fresco sempre acompanha você.',
+    'skip': true
+  },
+  {
+    'color': '#31b77a',
+    'title': 'Vamos Cozinhar',
+    'image': 'assets/image3.png',
+    'description':
+        'Está pronto para preparar um prato para seus amigos ou familiares? Crie uma conta e cozinhe!',
+    'skip': true
+  },
+];
 
   @override
   Widget build(BuildContext context) {

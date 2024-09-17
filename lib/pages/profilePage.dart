@@ -27,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
             padding: EdgeInsets.only(top: 25, bottom: 10),
             child: const Center(
                 child: Text(
-              "Hey Hermano!",
+              "Olá, Usuário!",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 22,
@@ -36,7 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           Center(
               child: Text(
-            "What a wonderful day!!",
+            "Que dia maravilhoso!!",
             style: TextStyle(
                 color: Colors.black, fontSize: 16, fontWeight: FontWeight.w400),
           )),
@@ -46,35 +46,35 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           ListTile(
             leading: Icon(Icons.person),
-            title: Text("My Account Info"),
+            title: Text("Informações da Conta"),
             trailing: Icon(Icons.arrow_forward_ios),
           ),
           Divider(),
           ListTile(
             leading: Icon(Icons.payment),
-            title: Text("My Subscription Info"),
+            title: Text("Informações da Assinatura"),
             trailing: Icon(Icons.arrow_forward_ios),
           ),
           Divider(),
           ListTile(
             leading: Icon(Icons.list),
-            title: Text("All of my habits"),
+            title: Text("Todos os meus hábitos"),
             trailing: Icon(Icons.arrow_forward_ios),
           ),
           Divider(),
           ListTile(
             leading: Icon(Icons.info),
-            title: Text("About This App"),
+            title: Text("Sobre este Aplicativo"),
             trailing: Icon(Icons.arrow_forward_ios),
           ),
           Divider(),
           Center(
             child: TextButton(
               onPressed: (() {
-                print("User logged out");
+                print("Usuário desconectado");
               }),
               child: Text(
-                "Log Out",
+                "Sair",
                 style:
                     TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
               ),

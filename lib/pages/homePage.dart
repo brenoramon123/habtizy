@@ -33,11 +33,11 @@ class _HomePageState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           TextEditingController habitNameController =
-              TextEditingController(text: "Habit Name");
+              TextEditingController(text: "Nome do hábito");
           TextEditingController habitDescriptionController =
-              TextEditingController(text: "Habit Description");
+              TextEditingController(text: "Descrição do Hábito");
           return AlertDialog(
-            title: Text("Add a Habit"),
+            title: Text("Adicionar um hábito"),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                     });
                     Navigator.pop(context);
                   },
-                  child: Text("Save"))
+                  child: Text("Salvar"))
             ],
           );
         });
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                   alignment: Alignment.centerLeft,
                   child: Column(children: [
                     Text(
-                      "Hey Hermano!",
+                      "Hey Breno!",
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                       height: 5,
                     ),
                     Text(
-                      "You have ${habitList.length - counter} habits left for today",
+                      "Vocẽ Tem ${habitList.length - counter} Hábitos para concluir hoje",
                       style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w400,
@@ -137,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Keep Going!",
+                        "Continue Firme!",
                         style: TextStyle(color: Colors.grey[600], fontSize: 16),
                       ),
                       Text(habitList.isEmpty
@@ -166,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                   child: Divider(),
                 ),
                 habitList.isEmpty
-                    ? Text("No habits added yet!",
+                    ? Text("Sem hábitos ainda!",
                         style: TextStyle(color: Colors.grey))
                     : ListView.builder(
                         padding: EdgeInsets.zero,

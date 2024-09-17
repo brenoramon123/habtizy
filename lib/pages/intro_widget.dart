@@ -72,7 +72,7 @@ class IntroWidget extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {},
-                    child: const Text('Skip Now', style: TextStyle(color: Colors.black),),
+                    child: const Text('Pular', style: TextStyle(color: Colors.black),),
                   ),
                   GestureDetector(
                     onTap: onTab,
@@ -93,7 +93,7 @@ class IntroWidget extends StatelessWidget {
                   color: hexToColor(color),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                   onPressed: () {},
-                  child: const Text('Get Started', style: TextStyle(color: Colors.white)),
+                  child: const Text('Começar', style: TextStyle(color: Colors.white)),
                 ),
               )
             ),

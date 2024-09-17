@@ -39,7 +39,7 @@ class _HabitspageState extends State<Habitspage> {
                       height: 5,
                     ),
                     Text(
-                      "Use this to be inspired",
+                      "Use isso para se inspirar",
                       style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w400,
@@ -55,7 +55,7 @@ class _HabitspageState extends State<Habitspage> {
           height: 513,
           child: ListView(
             padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-            // ignore: prefer_const_literals_to_create_immutables
+            
             children: [
               SizedBox(
                 height: 200,

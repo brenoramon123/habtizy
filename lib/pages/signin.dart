@@ -37,7 +37,7 @@ class _SignInPageState extends State<SignInPage> {
     return Stack(
       children: [
         TextFormField(
-          keyboardType: TextInputType.name,
+          keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.next,
           decoration: InputDecoration(
             labelText: 'Email',
@@ -57,10 +57,11 @@ class _SignInPageState extends State<SignInPage> {
     return Stack(
       children: [
         TextFormField(
-          keyboardType: TextInputType.name,
-          textInputAction: TextInputAction.next,
+          obscureText: true,
+          keyboardType: TextInputType.text,
+          textInputAction: TextInputAction.done,
           decoration: InputDecoration(
-            labelText: 'Password',
+            labelText: 'Senha',
             labelStyle: TextStyle(
                 color: Color.fromRGBO(173, 183, 192, 1),
                 fontWeight: FontWeight.bold),
@@ -88,7 +89,7 @@ class _SignInPageState extends State<SignInPage> {
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text(
-            'Sign in',
+            'Entrar',
             style: TextStyle(
                 color: Color.fromRGBO(76, 81, 93, 1),
                 fontSize: 25,
@@ -121,7 +122,7 @@ class _SignInPageState extends State<SignInPage> {
             onTap: () => Navigator.push(
                 context, MaterialPageRoute(builder: (context) => SignUpPage())),
             child: Text(
-              'Register',
+              'Registrar',
               style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -135,7 +136,7 @@ class _SignInPageState extends State<SignInPage> {
             //   //     context, MaterialPageRoute(builder: (context) => SignUpPage()));
             // },
             child: Text(
-              'Forgot Password',
+              'Esqueceu a Senha',
               style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -222,11 +223,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Início"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today), label: "Progress"),
-          BottomNavigationBarItem(icon: Icon(Icons.timeline), label: "Habits"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
+              icon: Icon(Icons.calendar_today), label: "Progresso"),
+          BottomNavigationBarItem(icon: Icon(Icons.timeline), label: "Hábitos"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Perfil")
         ],
       ),
     );

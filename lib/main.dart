@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import './pages/intro_widget.dart';
+import "./pages/intro_screen.dart";
 
 void main() {
-  runApp(const MainApp());
+  runApp(MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello oi'),
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'App Demo',
+      home: const IntroScreen(),
     );
   }
 }

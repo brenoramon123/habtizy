@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import '../widgets/singinContainer.dart';
 import './signup.dart';
+import "./homePage.dart";
+import './progressPage.dart';
+import './habitsPage.dart';
+import './profilePage.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -74,8 +78,12 @@ class _SignInPageState extends State<SignInPage> {
       alignment: Alignment.centerRight,
       child: InkWell(
         onTap: () {
-          // Navigator.push(
-          //     context, MaterialPageRoute(builder: (context) => SignUpPage()));
+             Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NavigationScreen(currentIndex: 0),
+                  ),
+                );
         },
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -88,12 +96,12 @@ class _SignInPageState extends State<SignInPage> {
                 height: 1.6),
           ),
           SizedBox.fromSize(
-            size: Size.square(70.0), // button width and height
+            size: Size.square(70.0), 
             child: ClipOval(
               child: Material(
                 color: Color.fromRGBO(76, 81, 93, 1),
                 child: Icon(Icons.arrow_forward,
-                    color: Colors.white), // button color
+                    color: Colors.white),
               ),
             ),
           ),
@@ -175,6 +183,51 @@ class _SignInPageState extends State<SignInPage> {
             Positioned(top: 60, left: 0, child: _backButton()),
           ],
         ),
+      ),
+    );
+  }
+}
+
+
+class NavigationScreen extends StatefulWidget {
+  NavigationScreen({required this.currentIndex});
+  int currentIndex;
+  @override
+  State<NavigationScreen> createState() => _NavigationScreenState();
+}
+
+const List<Widget> screens = [
+  HomePage(),
+  ProgressPage(),
+  Habitspage(),
+  ProfilePage()
+];
+
+class _NavigationScreenState extends State<NavigationScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: IndexedStack(
+        index: widget.currentIndex,
+        children: screens,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.deepPurpleAccent,
+        currentIndex: widget.currentIndex,
+        onTap: (index) {
+          setState(() {
+            widget.currentIndex = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today), label: "Progress"),
+          BottomNavigationBarItem(icon: Icon(Icons.timeline), label: "Habits"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
+        ],
       ),
     );
   }

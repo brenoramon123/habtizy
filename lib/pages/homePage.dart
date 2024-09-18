@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './services/lists.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
 
   // Função para adicionar um hábito à lista
   void addToHabitList(String habitName, String habitDescription) {
-    habitList.add([false, habitName, habitDescription, Icon(Icons.abc)]);
+    habitList.add([false, habitName, habitDescription, const Icon(Icons.abc)]);
   }
 
   // Função para remover um hábito da lista
@@ -33,42 +33,48 @@ class _HomePageState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           TextEditingController habitNameController =
-              TextEditingController(text: "Nome do hábito");
+              TextEditingController();
           TextEditingController habitDescriptionController =
-              TextEditingController(text: "Descrição do Hábito");
+              TextEditingController();
           return AlertDialog(
-            title: Text("Adicionar um hábito"),
+            title: const Text("Adicionar um hábito"),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 TextFormField(
                   controller: habitNameController,
+                  decoration: const InputDecoration(
+                    hintText: 'Nome do hábito'
+                  ),
                 ),
                 TextFormField(
                   controller: habitDescriptionController,
+                  decoration: const InputDecoration(
+                    hintText: 'Descrição do Hábito'
+                  ),
                 ),
               ],
             ),
             actions: [
               ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                      surfaceTintColor: MaterialStateProperty.all(Colors.purpleAccent)),
+                      backgroundColor: WidgetStateProperty.all(const Color.fromARGB(255, 224, 223, 226)),
+                      surfaceTintColor: WidgetStateProperty.all(Colors.purpleAccent)),
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Cancel")),
+                  child: const Text("Cancel")),
               ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
-                      surfaceTintColor: MaterialStateProperty.all(Colors.purpleAccent)),
+                      backgroundColor: WidgetStateProperty.all(const Color.fromARGB(255, 224, 223, 226)),
+                      surfaceTintColor: WidgetStateProperty.all(Colors.purpleAccent)),
                   onPressed: () {
                     setState(() {
                       addToHabitList(habitNameController.text, habitDescriptionController.text);
                     });
                     Navigator.pop(context);
                   },
-                  child: Text("Salvar"))
+                  child: const Text("Salvar"))
             ],
           );
         });
@@ -80,37 +86,37 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         mini: true,
         backgroundColor: Colors.purple,
-        child: Icon(Icons.add),
         onPressed: (() {
           addHabit(context);
         }),
+        child: const Icon(Icons.add),
       ),
       backgroundColor: Colors.grey[100],
       body: ListView(padding: EdgeInsets.zero, children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(30),
             child: Stack(children: [
               Image.asset('assets/MainBackground.png'),
               Padding(
-                padding: EdgeInsets.fromLTRB(20, 140, 0, 20),
+                padding: const EdgeInsets.fromLTRB(20, 140, 0, 20),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Column(children: [
-                    Text(
+                    const Text(
                       "Hey Breno!",
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                           color: Colors.white),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
                       "Vocẽ Tem ${habitList.length - counter} Hábitos para concluir hoje",
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w400,
                           color: Colors.white),
@@ -128,7 +134,7 @@ class _HomePageState extends State<HomePage> {
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30), topRight: Radius.circular(30))),
           child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Column(
               children: [
                 Padding(
@@ -151,22 +157,22 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.85,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                     child: LinearProgressIndicator(
                         minHeight: 12,
                         color: Colors.deepPurpleAccent,
-                        backgroundColor: Color.fromARGB(255, 192, 170, 250),
+                        backgroundColor: const Color.fromARGB(255, 192, 170, 250),
                         value: habitList.isEmpty
                             ? 0
                             : (counter / habitList.length)),
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(top: 10),
                   child: Divider(),
                 ),
                 habitList.isEmpty
-                    ? Text("Sem hábitos ainda!",
+                    ? const Text("Sem hábitos ainda!",
                         style: TextStyle(color: Colors.grey))
                     : ListView.builder(
                         padding: EdgeInsets.zero,
@@ -180,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 IconButton(
-                                  icon: Icon(Icons.delete, color: Colors.red),
+                                  icon: const Icon(Icons.delete, color: Colors.red),
                                   onPressed: () {
                                     removeHabit(index);
                                   },

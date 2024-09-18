@@ -33,7 +33,7 @@ void onNextPage() {
     // Navega para a página de login ao final do onboarding
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => SignInPage()),
+      MaterialPageRoute(builder: (context) => const SignInPage()),
     );
   }
 }

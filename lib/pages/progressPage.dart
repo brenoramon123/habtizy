@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-import './services/lists.dart';
 
 class ProgressPage extends StatefulWidget {
-  const ProgressPage({Key? key}) : super(key: key);
+  const ProgressPage({super.key});
 
   @override
   State<ProgressPage> createState() => _ProgressPageState();

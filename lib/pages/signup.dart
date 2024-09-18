@@ -3,7 +3,7 @@ import '../widgets/signupContainer.dart';
 import './signin.dart';
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  const SignUpPage({super.key});
 
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -16,12 +16,12 @@ class _SignUpPageState extends State<SignUpPage> {
         Navigator.pop(context);
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Row(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(left: 0, top: 20, bottom: 10),
-              child: Icon(Icons.keyboard_arrow_left, color: Colors.white),
+              padding: const EdgeInsets.only(left: 0, top: 20, bottom: 10),
+              child: const Icon(Icons.keyboard_arrow_left, color: Colors.white),
             ),
           ],
         ),
@@ -35,7 +35,7 @@ class _SignUpPageState extends State<SignUpPage> {
         TextFormField(
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.next,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             // hintText: 'Enter your full name',
             labelText: 'Nome',
             labelStyle: TextStyle(
@@ -59,7 +59,7 @@ class _SignUpPageState extends State<SignUpPage> {
         TextFormField(
           keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.next,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             // hintText: 'Enter your email',
             labelText: 'Email',
             labelStyle: TextStyle(
@@ -84,7 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
           obscureText: true,
           keyboardType: TextInputType.text,
           textInputAction: TextInputAction.done,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             labelText: 'Senha',
             labelStyle: TextStyle(
                 color: Color.fromRGBO(226, 222, 211, 1),
@@ -111,7 +111,7 @@ class _SignUpPageState extends State<SignUpPage> {
         },
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text(
+          const Text(
             'Cadastrar',
             style: TextStyle(
                 color: Colors.white,
@@ -120,8 +120,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 height: 1.6),
           ),
           SizedBox.fromSize(
-            size: Size.square(70.0), // button width and height
-            child: ClipOval(
+            size: const Size.square(70.0), // button width and height
+            child: const ClipOval(
               child: Material(
                 color: Color.fromRGBO(76, 81, 93, 1),
                 child: Icon(Icons.arrow_forward,
@@ -136,12 +136,12 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _createLoginLabel() {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20),
       alignment: Alignment.bottomLeft,
       child: InkWell(
         onTap: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SignInPage())),
-        child: Text(
+            context, MaterialPageRoute(builder: (context) => const SignInPage())),
+        child: const Text(
           'Entrar',
           style: TextStyle(
             fontSize: 14,
@@ -165,21 +165,21 @@ class _SignUpPageState extends State<SignUpPage> {
           children: [
             Positioned(
                 height: MediaQuery.of(context).size.height * 1,
-                child: SignUpContainer()),
+                child: const SignUpContainer()),
             SingleChildScrollView(
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
                       children: [
                         SizedBox(height: height * .4),
                         _nameWidget(),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         _emailWidget(),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         _passwordWidget(),
-                        SizedBox(height: 80),
+                        const SizedBox(height: 80),
                         _submitButton(),
                         SizedBox(height: height * .050),
                         _createLoginLabel(),

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import './services/chartsBuilder.dart';
 
 class Habitspage extends StatefulWidget {
-  const Habitspage({Key? key}) : super(key: key);
+  const Habitspage({super.key});
 
   @override
   State<Habitspage> createState() => _HabitspageState();
@@ -51,12 +51,12 @@ class _HabitspageState extends State<Habitspage> {
             ]),
           ),
         ),
-        Container(
+        SizedBox(
           height: 513,
           child: ListView(
             padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
             
-            children: [
+            children: const [
               SizedBox(
                 height: 200,
                 child: LineChartSample1(),

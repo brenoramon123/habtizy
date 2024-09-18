@@ -5,7 +5,7 @@ import './siginClipper.dart';
 import 'package:proste_bezier_curve/proste_bezier_curve.dart';
 
 class SigninContainer extends StatelessWidget {
-  const SigninContainer({Key? key}) : super(key: key);
+  const SigninContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class SigninContainer extends StatelessWidget {
             clipper: WaveClipperThree(),
             child: Container(
               width: MediaQuery.of(context).size.width * 1.2,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromRGBO(104, 203, 240, 1),
               ),
             ),
@@ -30,10 +30,10 @@ class SigninContainer extends StatelessWidget {
           child: Container(
               height: MediaQuery.of(context).size.height * .5,
               width: MediaQuery.of(context).size.width * 1,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromRGBO(80, 86, 96, 1),
               ),
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.symmetric(vertical: 158, horizontal: 30),
                 child: Text('Bem-vindo\nDe volta',
                     textAlign: TextAlign.left,
@@ -68,7 +68,7 @@ class SigninContainer extends StatelessWidget {
             child: Container(
               height: MediaQuery.of(context).size.height * 0.20,
               width: MediaQuery.of(context).size.width * 1,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromRGBO(255, 174, 71, 1),
               ),
             ),

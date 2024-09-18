@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import './signup_clipper.dart';
 
 class SignUpContainer extends StatelessWidget {
-  const SignUpContainer({Key? key}) : super(key: key);
+  const SignUpContainer({super.key});
 
+  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
@@ -12,7 +13,7 @@ class SignUpContainer extends StatelessWidget {
           child: Container(
             height: MediaQuery.of(context).size.height * 1,
             width: MediaQuery.of(context).size.width * 1,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color.fromRGBO(104, 203, 240, 1),
             ),
           ),
@@ -22,10 +23,10 @@ class SignUpContainer extends StatelessWidget {
           child: Container(
             height: MediaQuery.of(context).size.height * .55,
             width: MediaQuery.of(context).size.width * 1,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color.fromRGBO(80, 86, 96, 1),
             ),
-            child: Padding(
+            child: const Padding(
               padding: EdgeInsets.symmetric(vertical: 150, horizontal: 20),
               child: Text('Criar \nConta!',
                   textAlign: TextAlign.left,

@@ -7,7 +7,7 @@ import './habitsPage.dart';
 import './profilePage.dart';
 
 class SignInPage extends StatefulWidget {
-  const SignInPage({Key? key}) : super(key: key);
+  const SignInPage({super.key});
 
   @override
   _SignInPageState createState() => _SignInPageState();
@@ -20,12 +20,12 @@ class _SignInPageState extends State<SignInPage> {
         Navigator.pop(context);
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Row(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(left: 0, top: 20, bottom: 10),
-              child: Icon(Icons.keyboard_arrow_left, color: Colors.white),
+              padding: const EdgeInsets.only(left: 0, top: 20, bottom: 10),
+              child: const Icon(Icons.keyboard_arrow_left, color: Colors.white),
             ),
           ],
         ),
@@ -39,7 +39,7 @@ class _SignInPageState extends State<SignInPage> {
         TextFormField(
           keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.next,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             labelText: 'Email',
             labelStyle: TextStyle(
                 color: Color.fromRGBO(173, 183, 192, 1),
@@ -60,7 +60,7 @@ class _SignInPageState extends State<SignInPage> {
           obscureText: true,
           keyboardType: TextInputType.text,
           textInputAction: TextInputAction.done,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             labelText: 'Senha',
             labelStyle: TextStyle(
                 color: Color.fromRGBO(173, 183, 192, 1),
@@ -88,7 +88,7 @@ class _SignInPageState extends State<SignInPage> {
         },
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text(
+          const Text(
             'Entrar',
             style: TextStyle(
                 color: Color.fromRGBO(76, 81, 93, 1),
@@ -97,8 +97,8 @@ class _SignInPageState extends State<SignInPage> {
                 height: 1.6),
           ),
           SizedBox.fromSize(
-            size: Size.square(70.0), 
-            child: ClipOval(
+            size: const Size.square(70.0), 
+            child: const ClipOval(
               child: Material(
                 color: Color.fromRGBO(76, 81, 93, 1),
                 child: Icon(Icons.arrow_forward,
@@ -113,15 +113,15 @@ class _SignInPageState extends State<SignInPage> {
 
   Widget _createAccountLabel() {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20),
       alignment: Alignment.bottomCenter,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           InkWell(
             onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SignUpPage())),
-            child: Text(
+                context, MaterialPageRoute(builder: (context) => const SignUpPage())),
+            child: const Text(
               'Registrar',
               style: TextStyle(
                   fontSize: 14,
@@ -130,7 +130,7 @@ class _SignInPageState extends State<SignInPage> {
                   decorationThickness: 2),
             ),
           ),
-          InkWell(
+          const InkWell(
             // onTap: () {
             //   // Navigator.push(
             //   //     context, MaterialPageRoute(builder: (context) => SignUpPage()));
@@ -159,19 +159,19 @@ class _SignInPageState extends State<SignInPage> {
           children: [
             Positioned(
                 height: MediaQuery.of(context).size.height * 0.50,
-                child: SigninContainer()),
+                child: const SigninContainer()),
             SingleChildScrollView(
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
                       children: [
                         SizedBox(height: height * .55),
                         _usernameWidget(),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         _passwordWidget(),
-                        SizedBox(height: 30),
+                        const SizedBox(height: 30),
                         _submitButton(),
                         SizedBox(height: height * .050),
                         _createAccountLabel(),
@@ -191,7 +191,7 @@ class _SignInPageState extends State<SignInPage> {
 
 
 class NavigationScreen extends StatefulWidget {
-  NavigationScreen({required this.currentIndex});
+  NavigationScreen({super.key, required this.currentIndex});
   int currentIndex;
   @override
   State<NavigationScreen> createState() => _NavigationScreenState();

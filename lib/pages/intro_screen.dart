@@ -41,30 +41,26 @@ void onNextPage() {
  final List<Map<String, dynamic>> _pages = [
   {
     'color': '#ffe24e',
-    'title': 'Hmmm, Comida Saudável',
+    'title': 'Hábitos Saudáveis',
     'image': 'assets/image1.png',
-    'description':
-        'Uma variedade de alimentos preparados pelos melhores chefs. Ingredientes fáceis de encontrar, todos os sabores deliciosos só podem ser encontrados no Cookbunda.',
+    'description': 'Adote uma rotina de hábitos saudáveis para uma vida melhor.',
     'skip': true
   },
   {
     'color': '#a3e4f1',
-    'title': 'Bebidas Frescas, Fique Fresco',
+    'title': 'Foco e Consistência',
     'image': 'assets/image2.png',
-    'description':
-        'Não é só comida, oferecemos opções de bebidas saudáveis e claras para você. O sabor fresco sempre acompanha você.',
+    'description': 'Mantenha o foco e construa consistência em seus hábitos diários.',
     'skip': true
   },
   {
     'color': '#31b77a',
-    'title': 'Vamos Cozinhar',
+    'title': 'Acompanhe seu Progresso',
     'image': 'assets/image3.png',
-    'description':
-        'Está pronto para preparar um prato para seus amigos ou familiares? Crie uma conta e cozinhe!',
+    'description': 'Veja seu progresso e celebre suas conquistas ao longo do caminho.',
     'skip': true
   },
 ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

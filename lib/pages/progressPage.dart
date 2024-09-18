@@ -1,18 +1,14 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import './services/habit_provider.dart';
 
-
-class ProgressPage extends StatefulWidget {
+class ProgressPage extends ConsumerWidget {
   const ProgressPage({super.key});
 
   @override
-  State<ProgressPage> createState() => _ProgressPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final habitList = ref.watch(habitProvider);  // Acessando os hábitos
 
-class _ProgressPageState extends State<ProgressPage> {
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: ListView(padding: EdgeInsets.zero, children: [
@@ -50,17 +46,10 @@ class _ProgressPageState extends State<ProgressPage> {
             ]),
           ),
         ),
+
+        // Seção de hábitos principais
         Padding(
-          padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30), color: Colors.white),
-            // ignore: prefer_const_literals_to_create_immutables
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(20, 10, 15, 10),
+          padding: const EdgeInsets.fromLTRB(20, 10, 15, 10),
           child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
@@ -72,175 +61,103 @@ class _ProgressPageState extends State<ProgressPage> {
               )),
         ),
         Padding(
-          padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+          padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(30)),
-
-            // ignore: prefer_const_literals_to_create_immutables
-            child: Column(children: [
-              ListTile(
-                  leading: CircularProgressIndicator(
-                    color: Colors.deepPurpleAccent,
-                    strokeWidth: 7.5,
-                    backgroundColor: Color.fromARGB(255, 192, 170, 250),
-                    value: 1,
-                  ),
-                  title: Text(
-                    "Beber Água",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "Quão bem você tem se saído ao beber água esta semana",
-                    style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
-                  ),
-                  trailing: Icon(Icons.local_drink)),
-              Divider(),
-              ListTile(
-                  leading: CircularProgressIndicator(
-                    color: Colors.deepPurpleAccent,
-                    strokeWidth: 7.5,
-                    backgroundColor: Color.fromARGB(255, 192, 170, 250),
-                    value: 0.95,
-                  ),
-                  title: Text(
-                    "Leitura",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "Quão bem você tem se saído ao ler esta semana",
-                    style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
-                  ),
-                  trailing: Icon(Icons.book)),
-              Divider(),
-              ListTile(
-                  leading: CircularProgressIndicator(
-                    color: Colors.deepPurpleAccent,
-                    strokeWidth: 7.5,
-                    backgroundColor: Color.fromARGB(255, 192, 170, 250),
-                    value: 0.8,
-                  ),
-                  title: Text(
-                    "Exercícios",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "Quão bem você tem se saído ao se exercitar esta semana",
-                    style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
-                  ),
-                  trailing: Icon(Icons.sports_gymnastics)),
-              Divider(),
-              ListTile(
-                  leading: CircularProgressIndicator(
-                    color: Colors.deepPurpleAccent,
-                    strokeWidth: 7.5,
-                    backgroundColor: Color.fromARGB(255, 192, 170, 250),
-                    value: 0.65,
-                  ),
-                  title: Text(
-                    "Estudando Espanhol",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "Quão bem você tem se saído ao estudar espanhol esta semana",
-                    style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
-                  ),
-                  trailing: Icon(Icons.language)),
-            ]),
+            child: Column(
+              children: habitList.isEmpty
+                  ? [
+                      const Center(
+                        child: Text("Sem hábitos ainda!", style: TextStyle(color: Colors.grey)),
+                      )
+                    ]
+                  : List.generate(habitList.length, (index) {
+                      final habit = habitList[index];
+                      final progress = habit.completed ? 1.0 : 0.7; // Exemplo de valor de progresso
+                      return Column(
+                        children: [
+                          ListTile(
+                            leading: CircularProgressIndicator(
+                              color: Colors.deepPurpleAccent,
+                              strokeWidth: 7.5,
+                              backgroundColor: const Color.fromARGB(255, 192, 170, 250),
+                              value: progress,  // Progresso do hábito
+                            ),
+                            title: Text(
+                              habit.title,
+                              style: const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text(
+                              "Progresso do hábito: ${habit.title}",
+                              style: const TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
+                            ),
+                            trailing: habit.icon,
+                          ),
+                          const Divider(),
+                        ],
+                      );
+                    }),
+            ),
           ),
         ),
-        Padding(
+
+        // Seção de piores hábitos
+        const Padding(
           padding: EdgeInsets.fromLTRB(20, 25, 15, 10),
           child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 "Piores Hábitos Esta Semana",
                 style: TextStyle(
-                    color: Colors.grey[900],
+                    color: Colors.deepPurpleAccent,
                     fontSize: 18,
                     fontWeight: FontWeight.w600),
               )),
         ),
         Padding(
-          padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+          padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(30)),
-
-            // ignore: prefer_const_literals_to_create_immutables
-            child: Column(children: [
-              ListTile(
-                  leading: CircularProgressIndicator(
-                    color: Colors.deepPurpleAccent,
-                    strokeWidth: 7.5,
-                    backgroundColor: Color.fromARGB(255, 192, 170, 250),
-                    value: 0.12,
-                  ),
-                  title: Text(
-                    "Programação",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "Quão mal você tem se saído na programação esta semana",
-                    style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
-                  ),
-                  trailing: Icon(Icons.computer)),
-              Divider(),
-              ListTile(
-                  leading: CircularProgressIndicator(
-                    color: Colors.deepPurpleAccent,
-                    strokeWidth: 7.5,
-                    backgroundColor: Color.fromARGB(255, 192, 170, 250),
-                    value: 0.25,
-                  ),
-                  title: Text(
-                    "Diário",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "Quão mal você tem se saído ao escrever no diário esta semana",
-                    style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
-                  ),
-                  trailing: Icon(Icons.edit)),
-              Divider(),
-              ListTile(
-                  leading: CircularProgressIndicator(
-                    color: Colors.deepPurpleAccent,
-                    strokeWidth: 7.5,
-                    backgroundColor: Color.fromARGB(255, 192, 170, 250),
-                    value: 0.33,
-                  ),
-                  title: Text(
-                    "Limpeza",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "Quão mal você tem se saído na limpeza esta semana",
-                    style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
-                  ),
-                  trailing: Icon(Icons.cleaning_services_outlined)),
-              Divider(),
-              ListTile(
-                  leading: CircularProgressIndicator(
-                    color: Colors.deepPurpleAccent,
-                    strokeWidth: 7.5,
-                    backgroundColor: Color.fromARGB(255, 192, 170, 250),
-                    value: 0.33,
-                  ),
-                  title: Text(
-                    "Acordar Cedo",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "Quão mal você tem se saído ao acordar cedo esta semana",
-                    style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
-                  ),
-                  trailing: Icon(Icons.language)),
-            ]),
+            child: Column(
+              children: habitList.isEmpty
+                  ? [
+                      const Center(
+                        child: Text("Sem hábitos ainda!", style: TextStyle(color: Colors.grey)),
+                      )
+                    ]
+                  : List.generate(habitList.length, (index) {
+                      final habit = habitList[index];
+                      final progress = habit.completed ? 1.0 : 0.3; // Exemplo de valor de progresso para piores hábitos
+                      return Column(
+                        children: [
+                          ListTile(
+                            leading: CircularProgressIndicator(
+                              color: Colors.deepPurpleAccent,
+                              strokeWidth: 7.5,
+                              backgroundColor: const Color.fromARGB(255, 192, 170, 250),
+                              value: progress,  // Progresso para hábitos menos cumpridos
+                            ),
+                            title: Text(
+                              habit.title,
+                              style: const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text(
+                              "Progresso do hábito: ${habit.title}",
+                              style: const TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
+                            ),
+                            trailing: habit.icon,
+                          ),
+                          const Divider(),
+                        ],
+                      );
+                    }),
+            ),
           ),
-        )
+        ),
       ]),
     );
   }
